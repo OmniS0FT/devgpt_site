@@ -7,6 +7,8 @@ interface Props {
   title: string
 	description?: string
 }
+
+const isProd = import.meta.env.PROD;
 ---
 
 <html lang="en" class="bg-zinc-50 dark:bg-neutral-900">
@@ -19,9 +21,9 @@ interface Props {
 		<title>{Astro.props.title} ✽ compa</title>
 
 		{
-			process.env.NODE_ENV === 'production' && (
+			isProd && (
 			<!-- Observe Prod -->
-		<script src="https://0.observe.so/script.js" data-app="clwscqbfv00ayx3c8dm9kdzz7" />
+		<script is:inline src="https://0.observe.so/script.js" data-app="clwscqbfv00ayx3c8dm9kdzz7" />
 			)
 		}
 
